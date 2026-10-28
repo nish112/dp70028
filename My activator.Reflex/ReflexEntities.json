@@ -1,0 +1,206 @@
+[
+  {
+    "uniqueIdentifier": "22242735-ad3d-40fb-992f-115ec8a4f6dd",
+    "payload": {
+      "name": "NewRTDashboard_2",
+      "description": "Container Description",
+      "type": "kqlQueries"
+    },
+    "type": "container-v1"
+  },
+  {
+    "uniqueIdentifier": "648e8d7b-421c-4b14-9b4d-19af1fb0cd67",
+    "payload": {
+      "name": "demoeventhouse27 event",
+      "runSettings": {
+        "isStopped": false,
+        "executionIntervalInSeconds": 300
+      },
+      "query": {
+        "queryString": "Bikestream\n|project Street, Neighbourhood, No_Bikes\n| take 90"
+      },
+      "eventhouseItem": {
+        "itemId": "5a60122d-d7dd-87fa-42b8-a6b089abda78",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemType": "KustoDatabase"
+      },
+      "queryParameters": [],
+      "metadata": {
+        "workspaceId": "0c2eae19-b642-411a-af8c-240806b1265b",
+        "dashboardId": "e42ba6e9-03fb-452d-874a-93c953a3b9f0",
+        "visualId": "65d19953-4385-4f0b-b908-a503db4b5f5c"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "22242735-ad3d-40fb-992f-115ec8a4f6dd"
+      }
+    },
+    "type": "kqlSource-v1"
+  },
+  {
+    "uniqueIdentifier": "e3be144f-0a3c-44f1-9c30-ca7a47b1efcc",
+    "payload": {
+      "name": "demoeventhouse27 event",
+      "parentContainer": {
+        "targetUniqueIdentifier": "22242735-ad3d-40fb-992f-115ec8a4f6dd"
+      },
+      "definition": {
+        "type": "Event",
+        "instance": "{\"steps\":[{\"id\":\"d44fef4a-8149-4ad6-bbfa-704112f04f06\",\"name\":\"SourceEventStep\",\"rows\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"648e8d7b-421c-4b14-9b4d-19af1fb0cd67\"}],\"kind\":\"SourceReference\",\"name\":\"SourceSelector\"}]}],\"templateId\":\"SourceEvent\",\"templateVersion\":\"1.3.1\"}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "f764fc5a-28d6-4671-bbb1-75780ac32a48",
+    "payload": {
+      "name": "Neighbourhood",
+      "parentContainer": {
+        "targetUniqueIdentifier": "22242735-ad3d-40fb-992f-115ec8a4f6dd"
+      },
+      "definition": {
+        "type": "Object"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "2bb5e637-2de1-4b00-8aa2-d87a58ba6fe6",
+    "payload": {
+      "name": "Neighbourhood",
+      "parentObject": {
+        "targetUniqueIdentifier": "f764fc5a-28d6-4671-bbb1-75780ac32a48"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "22242735-ad3d-40fb-992f-115ec8a4f6dd"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"steps\":[{\"id\":\"00656cb3-b28c-4456-b8d0-6a9bde093387\",\"name\":\"IdPartStep\",\"rows\":[{\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Text\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}],\"kind\":\"TypeAssertion\",\"name\":\"TypeAssertion\"}]}],\"templateId\":\"IdentityPartAttribute\",\"templateVersion\":\"1.3.1\"}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "a83da524-8996-4cb0-91ba-690270885a98",
+    "payload": {
+      "name": "Neighbourhood",
+      "parentObject": {
+        "targetUniqueIdentifier": "f764fc5a-28d6-4671-bbb1-75780ac32a48"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "22242735-ad3d-40fb-992f-115ec8a4f6dd"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"steps\":[{\"id\":\"9e5f39c5-7892-448c-8bff-946eb046494b\",\"name\":\"IdStructureStep\",\"rows\":[{\"arguments\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"2bb5e637-2de1-4b00-8aa2-d87a58ba6fe6\"}],\"kind\":\"AttributeReference\",\"name\":\"idPart\",\"type\":\"complex\"}],\"kind\":\"IdPart\",\"name\":\"IdPart\"}]}],\"templateId\":\"IdentityTupleAttribute\",\"templateVersion\":\"1.3.1\"}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "0910b4e4-459d-447a-acb2-5d1aff5dd54e",
+    "payload": {
+      "name": "demoeventhouse27 event",
+      "parentObject": {
+        "targetUniqueIdentifier": "f764fc5a-28d6-4671-bbb1-75780ac32a48"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "22242735-ad3d-40fb-992f-115ec8a4f6dd"
+      },
+      "definition": {
+        "type": "Event",
+        "instance": "{\"steps\":[{\"id\":\"9272adbf-c96b-4210-b309-896e1da7f9e1\",\"name\":\"SplitEventStep\",\"rows\":[{\"arguments\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"e3be144f-0a3c-44f1-9c30-ca7a47b1efcc\"}],\"kind\":\"EventReference\",\"name\":\"event\",\"type\":\"complex\"}],\"kind\":\"Event\",\"name\":\"EventSelector\"},{\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"Neighbourhood\"},{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"2bb5e637-2de1-4b00-8aa2-d87a58ba6fe6\"}],\"kind\":\"AttributeReference\",\"name\":\"idPart\",\"type\":\"complex\"}],\"kind\":\"FieldIdMapping\",\"name\":\"FieldIdMapping\"},{\"arguments\":[{\"name\":\"isAuthoritative\",\"type\":\"boolean\",\"value\":true}],\"kind\":\"EventOptions\",\"name\":\"SplitEventOptions\"}]}],\"templateId\":\"SplitEvent\",\"templateVersion\":\"1.3.1\"}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "01a713a8-4962-4a0c-8276-1eda01f52a34",
+    "payload": {
+      "name": "No_Bikes",
+      "parentObject": {
+        "targetUniqueIdentifier": "f764fc5a-28d6-4671-bbb1-75780ac32a48"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "22242735-ad3d-40fb-992f-115ec8a4f6dd"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"steps\":[{\"id\":\"41e861e8-2a5c-4586-bf5e-d6525ea0730b\",\"name\":\"EventSelectStep\",\"rows\":[{\"arguments\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"0910b4e4-459d-447a-acb2-5d1aff5dd54e\"}],\"kind\":\"EventReference\",\"name\":\"event\",\"type\":\"complex\"}],\"kind\":\"Event\",\"name\":\"EventSelector\"},{\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"No_Bikes\"}],\"kind\":\"EventField\",\"name\":\"EventFieldSelector\"}]},{\"id\":\"98948350-0820-465d-9f3f-41ab1b3d568f\",\"name\":\"EventComputeStep\",\"rows\":[{\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Text\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}],\"kind\":\"TypeAssertion\",\"name\":\"TypeAssertion\"}]}],\"templateId\":\"BasicEventAttribute\",\"templateVersion\":\"1.3.1\"}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "98eafbd7-e840-43d2-bd87-899eafa63f3c",
+    "payload": {
+      "name": "Street",
+      "parentObject": {
+        "targetUniqueIdentifier": "f764fc5a-28d6-4671-bbb1-75780ac32a48"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "22242735-ad3d-40fb-992f-115ec8a4f6dd"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"steps\":[{\"id\":\"f027f66e-989c-404a-99fd-d6530e7a4a1d\",\"name\":\"EventSelectStep\",\"rows\":[{\"arguments\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"0910b4e4-459d-447a-acb2-5d1aff5dd54e\"}],\"kind\":\"EventReference\",\"name\":\"event\",\"type\":\"complex\"}],\"kind\":\"Event\",\"name\":\"EventSelector\"},{\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"Street\"}],\"kind\":\"EventField\",\"name\":\"EventFieldSelector\"}]},{\"id\":\"be81778f-62a8-4423-b7c2-a7569ea45b1f\",\"name\":\"EventComputeStep\",\"rows\":[{\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Text\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}],\"kind\":\"TypeAssertion\",\"name\":\"TypeAssertion\"}]}],\"templateId\":\"BasicEventAttribute\",\"templateVersion\":\"1.3.1\"}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "e21767aa-6dfa-4c74-b42b-60661687b33b",
+    "payload": {
+      "name": "Neighbourhood",
+      "parentObject": {
+        "targetUniqueIdentifier": "f764fc5a-28d6-4671-bbb1-75780ac32a48"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "22242735-ad3d-40fb-992f-115ec8a4f6dd"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"steps\":[{\"id\":\"10a4ad82-64dd-457a-86f6-9f2b2c22ab22\",\"name\":\"EventSelectStep\",\"rows\":[{\"arguments\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"0910b4e4-459d-447a-acb2-5d1aff5dd54e\"}],\"kind\":\"EventReference\",\"name\":\"event\",\"type\":\"complex\"}],\"kind\":\"Event\",\"name\":\"EventSelector\"},{\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"Neighbourhood\"}],\"kind\":\"EventField\",\"name\":\"EventFieldSelector\"}]},{\"id\":\"214c5f46-3a7e-4407-8858-72eecb12e2c4\",\"name\":\"EventComputeStep\",\"rows\":[{\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Text\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}],\"kind\":\"TypeAssertion\",\"name\":\"TypeAssertion\"}]}],\"templateId\":\"BasicEventAttribute\",\"templateVersion\":\"1.3.1\"}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "a3b4ce03-19af-4774-99ec-34fba6711b25",
+    "payload": {
+      "name": "No_Bikes",
+      "parentObject": {
+        "targetUniqueIdentifier": "f764fc5a-28d6-4671-bbb1-75780ac32a48"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "22242735-ad3d-40fb-992f-115ec8a4f6dd"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"steps\":[{\"id\":\"7f876591-102d-461b-afd6-537b043e1b35\",\"name\":\"EventSelectStep\",\"rows\":[{\"arguments\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"0910b4e4-459d-447a-acb2-5d1aff5dd54e\"}],\"kind\":\"EventReference\",\"name\":\"event\",\"type\":\"complex\"}],\"kind\":\"Event\",\"name\":\"EventSelector\"},{\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"No_Bikes\"}],\"kind\":\"EventField\",\"name\":\"EventFieldSelector\"}]},{\"id\":\"3e3be1a2-debe-48ab-ae0c-58982ace61f7\",\"name\":\"EventComputeStep\",\"rows\":[{\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Text\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}],\"kind\":\"TypeAssertion\",\"name\":\"TypeAssertion\"}]}],\"templateId\":\"BasicEventAttribute\",\"templateVersion\":\"1.3.1\"}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "7d2665a7-1f58-49b0-a57f-8273611519a4",
+    "payload": {
+      "name": "demorule",
+      "parentObject": {
+        "targetUniqueIdentifier": "f764fc5a-28d6-4671-bbb1-75780ac32a48"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "22242735-ad3d-40fb-992f-115ec8a4f6dd"
+      },
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"templateId\":\"AttributeTrigger\",\"templateVersion\":\"1.3.1\",\"steps\":[{\"name\":\"ScalarSelectStep\",\"id\":\"1a1e6902-510c-48cb-a074-300a0ba0cfe5\",\"rows\":[{\"name\":\"AttributeSelector\",\"kind\":\"Attribute\",\"arguments\":[{\"kind\":\"AttributeReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"01a713a8-4962-4a0c-8276-1eda01f52a34\"}],\"name\":\"attribute\"}]}]},{\"name\":\"ScalarDetectStep\",\"id\":\"10eb4872-5f5a-49b5-8aae-d4ba6d6c0f15\",\"rows\":[{\"name\":\"NumberBecomes\",\"kind\":\"NumberBecomes\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"BecomesLessThan\"},{\"name\":\"value\",\"type\":\"number\",\"value\":10.0}]},{\"name\":\"OccurrenceOption\",\"kind\":\"EachTime\",\"arguments\":[]}]},{\"name\":\"ActStep\",\"id\":\"944f4e0d-ee11-4946-a3d6-6ac51d2d8e71\",\"rows\":[{\"name\":\"EmailBinding\",\"kind\":\"EmailMessage\",\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"en-us\"},{\"name\":\"sentTo\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"demotest@nishkooutlook.onmicrosoft.com\"}]},{\"name\":\"copyTo\",\"type\":\"array\",\"values\":[]},{\"name\":\"bCCTo\",\"type\":\"array\",\"values\":[]},{\"name\":\"subject\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Activator alert demorule\"}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"The condition for 'demorule' has been met\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"\"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[{\"kind\":\"NameReferencePair\",\"type\":\"complex\",\"arguments\":[{\"name\":\"name\",\"type\":\"string\",\"value\":\"Street\"},{\"kind\":\"AttributeReference\",\"type\":\"complexReference\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"98eafbd7-e840-43d2-bd87-899eafa63f3c\"}],\"name\":\"reference\"}]},{\"kind\":\"NameReferencePair\",\"type\":\"complex\",\"arguments\":[{\"name\":\"name\",\"type\":\"string\",\"value\":\"Neighbourhood\"},{\"kind\":\"AttributeReference\",\"type\":\"complexReference\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"e21767aa-6dfa-4c74-b42b-60661687b33b\"}],\"name\":\"reference\"}]},{\"kind\":\"NameReferencePair\",\"type\":\"complex\",\"arguments\":[{\"name\":\"name\",\"type\":\"string\",\"value\":\"No_Bikes\"},{\"kind\":\"AttributeReference\",\"type\":\"complexReference\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"a3b4ce03-19af-4774-99ec-34fba6711b25\"}],\"name\":\"reference\"}]}]}]}]}]}",
+        "settings": {
+          "shouldRun": true,
+          "shouldApplyRuleOnUpdate": false
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  }
+]

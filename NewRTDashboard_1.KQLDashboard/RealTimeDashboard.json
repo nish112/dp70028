@@ -1,0 +1,82 @@
+{
+  "schema_version": 90,
+  "flavor": "RTDashboard_Regular",
+  "changeDetection": {
+    "kind": "liveUpdates",
+    "minRefreshRate": "30s",
+    "fallbackRefreshRate": "1m",
+    "minRefreshRate_V2": "30s"
+  },
+  "tiles": [
+    {
+      "id": "277be08f-0d48-4371-8f34-bd1a871f7585",
+      "title": "New Tile",
+      "visualType": "table",
+      "pageId": "f38a58b7-8435-4c7d-b026-f36e73997f5f",
+      "layout": {
+        "width": 9,
+        "height": 7,
+        "x": 0,
+        "y": 0
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "bdd52d7f-dbb0-4744-9d5c-df78d2de473a"
+      },
+      "visualOptions": {
+        "selectedDataOnLoad": {
+          "all": true,
+          "limit": 10
+        }
+      }
+    }
+  ],
+  "baseQueries": [],
+  "parameters": [
+    {
+      "kind": "duration",
+      "id": "74e29ae8-8faa-47c0-95d2-d59aef9a488a",
+      "displayName": "Time range",
+      "description": "",
+      "beginVariableName": "_startTime",
+      "endVariableName": "_endTime",
+      "defaultValue": {
+        "kind": "dynamic",
+        "count": 1,
+        "unit": "hours"
+      },
+      "showOnPages": {
+        "kind": "all"
+      }
+    }
+  ],
+  "dataSources": [
+    {
+      "id": "d9cee856-3df5-45d7-a073-545a1e534a19",
+      "kind": "kusto-trident",
+      "name": "demohouse",
+      "clusterUri": "",
+      "databaseArtifactId": "874ce86c-237b-4234-a435-83b0beb692be",
+      "database": "beb692be-83b0-a435-4234-237b874ce86c",
+      "workspace": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "pages": [
+    {
+      "name": "Page 1",
+      "id": "f38a58b7-8435-4c7d-b026-f36e73997f5f"
+    }
+  ],
+  "queries": [
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "d9cee856-3df5-45d7-a073-545a1e534a19"
+      },
+      "text": "// Use 'take' to view a sample number of records in the table and check the data.\nBikestream\n| take 100\n",
+      "id": "bdd52d7f-dbb0-4744-9d5c-df78d2de473a",
+      "usedVariables": []
+    }
+  ],
+  "embeddedApps": []
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": 88,
+  "flavor": "RTDashboard_Regular",
+  "changeDetection": {
+    "kind": "liveUpdates",
+    "minRefreshRate": "30s",
+    "fallbackRefreshRate": "1m",
+    "minRefreshRate_V2": "30s"
+  },
+  "tiles": [
+    {
+      "id": "65d19953-4385-4f0b-b908-a503db4b5f5c",
+      "title": "Bikes per neighbourhood",
+      "visualType": "table",
+      "pageId": "284ca3a6-1f06-4472-b42e-4acf44b3020a",
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 11,
+        "height": 8
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "b71809c7-8c4c-4514-ad03-1df179b8abce"
+      },
+      "visualOptions": {
+        "table__enableRenderLinks": true,
+        "colorRulesDisabled": true,
+        "crossFilter": [],
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "drillthrough": [],
+        "table__renderLinks": [],
+        "colorRules": [],
+        "selectedDataOnLoad": {
+          "all": true,
+          "limit": 10
+        }
+      }
+    }
+  ],
+  "baseQueries": [],
+  "parameters": [
+    {
+      "kind": "duration",
+      "id": "115ec2ba-d97d-412c-92b6-13b5ca4e935c",
+      "displayName": "Time range",
+      "description": "",
+      "beginVariableName": "_startTime",
+      "endVariableName": "_endTime",
+      "defaultValue": {
+        "kind": "dynamic",
+        "count": 1,
+        "unit": "hours"
+      },
+      "showOnPages": {
+        "kind": "all"
+      }
+    }
+  ],
+  "dataSources": [
+    {
+      "id": "6cecc24b-770f-40e8-b492-17a07d18accd",
+      "kind": "kusto-trident",
+      "name": "demoeventhouse27",
+      "clusterUri": "",
+      "databaseArtifactId": "89abda78-a6b0-42b8-87fa-d7dd5a60122d",
+      "database": "5a60122d-d7dd-87fa-42b8-a6b089abda78",
+      "workspace": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "pages": [
+    {
+      "name": "Page 1",
+      "id": "284ca3a6-1f06-4472-b42e-4acf44b3020a"
+    }
+  ],
+  "queries": [
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "6cecc24b-770f-40e8-b492-17a07d18accd"
+      },
+      "text": "Bikestream\n|project Street, Neighbourhood, No_Bikes\n| take 90",
+      "id": "b71809c7-8c4c-4514-ad03-1df179b8abce",
+      "usedVariables": []
+    }
+  ],
+  "embeddedApps": []
+}

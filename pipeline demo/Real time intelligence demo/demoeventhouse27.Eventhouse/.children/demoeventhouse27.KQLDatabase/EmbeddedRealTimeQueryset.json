@@ -1,0 +1,34 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "f5dba5ca-49e0-47b2-8b11-d1f2661bc7f4",
+        "clusterUri": "https://trd-epaqg9k4w44j2de4qg.z7.kusto.fabric.microsoft.com",
+        "type": "Fabric",
+        "databaseItemId": "89abda78-a6b0-42b8-87fa-d7dd5a60122d"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "a5717f69-d424-49fc-9ea0-9e32b9a5ed03",
+        "content": "//***********************************************************************************************************\n// Here are two articles to help you get started with KQL:\n// KQL reference guide - https://aka.ms/KQLguide\n// SQL - KQL conversions - https://aka.ms/sqlcheatsheet\n//***********************************************************************************************************\n\n// Use \"take\" to view a sample number of records in the table and check the data.\nYOUR_TABLE_HERE\n| take 100\n\n// See how many records are in the table.\nYOUR_TABLE_HERE\n| count\n\n// This query returns the number of ingestions per hour in the given table.\nYOUR_TABLE_HERE\n| summarize IngestionCount = count() by bin(ingestion_time(), 1h)\n\n",
+        "title": "Tab",
+        "dataSourceId": "f5dba5ca-49e0-47b2-8b11-d1f2661bc7f4"
+      },
+      {
+        "id": "e892fe7f-bf71-4d65-acd7-f976ef8b0701",
+        "content": "// Use 'take' to view a sample number of records in the table and check the data.\nBikestream\n|project Street, Neighbourhood, No_Bikes\n| take 90\n",
+        "title": "",
+        "dataSourceId": "f5dba5ca-49e0-47b2-8b11-d1f2661bc7f4"
+      },
+      {
+        "id": "3078c303-b701-4560-a2fb-2bd042cba538",
+        "content": "// Use 'take' to view a sample number of records in the table and check the data.\nBikestream\n| take 100\n\nBikestream\n| summarize [\"Total number of bikes\"] = sum(No_Bikes) by Neighbourhood\n| project Neighbourhood, [\"Total number of bikes\"]\n\nBikestream\n | where Neighbourhood  == \"Chelsea\"\n | summarize [\"Total Number of Bikes\"] = sum(No_Bikes) by Neighbourhood\n | project Neighbourhood = case(isempty(Neighbourhood) or isnull(Neighbourhood), \"Unidentified\", Neighbourhood), [\"Total Number of Bikes\"]\n | sort by Neighbourhood asc\n\n-- View a sample of 100 records in the table.\nselect top 100 * from Bikestream\n\n",
+        "title": "",
+        "dataSourceId": "f5dba5ca-49e0-47b2-8b11-d1f2661bc7f4"
+      }
+    ],
+    "querysetType": "Embedded"
+  }
+}
