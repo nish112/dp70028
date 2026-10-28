@@ -47,7 +47,7 @@ display(df)
 
 # CELL ********************
 
-df = spark.read.format("csv").option("header","true").load("Files/sales/sales.csv")
+df = spark.read.format("parquet").option("header","true").load("Files/sales/sales.csv")
 # df now is a Spark DataFrame containing CSV data from "Files/sales/sales.csv".
 display(df)
 
